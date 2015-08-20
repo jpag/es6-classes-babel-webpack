@@ -1,7 +1,10 @@
-# ES6 classes with webpack + babel
+# ES6 Classes with Webpack + Babel
 
 ## Why
-I don't want to work in dependency hell. Right out of the gate this framework is very lean.
+I don't want to work in dependency hell. Right out of the gate this framework is very lean. And does not rely on specific frameworks or other libraries. 
+    
+    -It is pure ES6, managed by webpack, and transpiled by Babel.
+    -NPM is the package and script manager, all in the packages.json file.
 
 ## Loose framework to build out ES6 classes using Babel and Webpack
 
@@ -11,9 +14,11 @@ A very incomplete framework.
 - no shims or polyfill checks implemented yet (for legacy browsers).
 
 ### TODO:
-    -router
-    -main app / entry point
+    -Router
+    -Main app / entry point
+    -Component test instance/example
     -AMD style loading/ selective library loading of content.
+    -Unit testing (tape/tap)
 
 ## Development Stack
 
