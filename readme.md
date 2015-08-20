@@ -1,33 +1,35 @@
 # ES6 classes with webpack + babel
 
-## TODO:
--router
--main app / entry point
--AMD style loading/ selective library loading of content.
-
 ## Why
 I don't want to work in dependency hell. Right out of the gate this framework is very lean.
-
 
 ## Loose framework to build out ES6 classes using Babel and Webpack
 
 A very incomplete framework. 
 - Deployment functions are not complete.
 - Basics are working.
-- no shims or polyfill checks are implements yet for legacy browsers.
+- no shims or polyfill checks implemented yet (for legacy browsers).
 
+### TODO:
+    -router
+    -main app / entry point
+    -AMD style loading/ selective library loading of content.
 
 ## Development Stack
 
-Server runs on Node
+### Server
+    loose node server to deliver static content.
+
+### Cient
+    compiled files from watched webpack/babel.
+    stylus files are compiled on watch as well.
+
 All package management and tasks are run through NPM. 
-
-
+Stylus with autoprefixer
 
 ### notes on using webpack babel
 
-#### specify parts of a library instead of the whole kitchen sink (lodash)
-
+#### specify parts of a library instead of the whole kitchen sink
 
 #### Reduce transpiled code helpers with babel and webpack: avoiding duplication/bloat
 
