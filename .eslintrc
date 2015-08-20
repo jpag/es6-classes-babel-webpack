@@ -1,0 +1,14 @@
+{
+	"parser": "babel-eslint",
+	"rules": {
+		"strict": [0, "never"],
+		"no-mixed-spaces-and-tabs": [2, "smart-tabs"]
+  	},
+  	"plugins": [
+
+  	],
+	"ecmaFeatures": {
+
+	},
+
+}

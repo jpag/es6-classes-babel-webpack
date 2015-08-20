@@ -1,0 +1,75 @@
+{
+	"name": " - ",
+	"description": " - ",
+	"version": "0.0.1",
+	"author": " - ",
+	"contributors": [
+		"Jp Gary"
+	],
+	
+	"private": true,
+
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+
+	"app": {
+		"env" 				: "local",
+		"sassDir"			: "src/css"
+	},
+
+	"engines": {
+		"node"			: "latest",
+		"npm"			: "latest"
+	},
+
+	"dependencies": { 
+		"forever"		: "latest",
+		"connect"		: "latest",
+		"serve-static"	: "latest",
+		"nodemon"		: "latest"
+	},
+
+	"devDependencies": {
+		"live-reload"			: "latest",
+		"parallelshell"			: "latest",
+		"watch"					: "latest",
+		"webpack"				: "*",
+		"babel-core"			: "*",
+    	"babel-loader"			: "*",
+    	"babel-runtime"			: "*",
+    	"lodash"				: "*",
+    	"node-libs-browser" 	: "*",
+    	
+    	"autoprefixer-stylus"	: "latest",
+    	"stylus"				: "latest",
+
+    	"cssmin"				: "latest",
+    	"eslint"				: "latest",
+    	"babel-eslint"			: "latest"
+			
+	},
+
+	"scripts": {
+
+		"lint"				: "eslint ./src/js/**/*.js",
+
+		"livereload"		: "live-reload --port 9091 ./public/",
+		
+		"build:stylus"		: "stylus -u autoprefixer-stylus --sourcemap < ./src/css/global.styl | cssmin > ./public/css/global.css ",
+		"dist:stylus"		: "stylus -u autoprefixer-stylus < ./src/css/global.styl | cssmin > ./dist/css/global.css ",
+		
+		"build:js"			: "ENV_DEV=1 webpack",
+		"dist:js"			: "ENV_DEV=0 webpack",
+
+		"watch:css"			: "watch 'npm run build:stylus' ./src/css/",
+		
+		"watch:js"			: "webpack --watch",
+
+		"dev"				: "nodemon ./server/server.js & parallelshell 'npm run watch:js' 'npm run watch:css' 'npm run livereload' 'npm run lint'",
+
+		"deploy"			: "npm run build:js"
+		
+	}
+}

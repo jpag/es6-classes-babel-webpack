@@ -1,0 +1,42 @@
+body {
+	overflow: hidden;
+	background: #eee;
+}
+
+
+.content {
+	position: relative;
+	margin: auto;
+	max-width: 960px;
+	width: 75%;
+	min-height: 500px;
+}
+
+
+.button {
+	background: #ddd;
+	width: auto;
+	height: 50px;
+	border-radius: 5px;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	display: inline-block;
+
+	&:hover {
+		background: #bbb;
+		border: 1px solid #aaa;
+	}
+
+	.nob {
+		width: 20px;
+		height: 20px;
+		position: relative;
+		margin: 5px;
+		display: inline-block;
+		background: #fff;
+
+		&.active {
+			background: #ffdd00;
+		}
+	}
+}
