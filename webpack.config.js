@@ -27,7 +27,7 @@ var plugins = [
 ];
 
 // TODO also deploy this to a different output path.
-if( !PROD ){
+if( PROD ){
     plugins.push(
         new webpack.optimize.UglifyJsPlugin({minimize: true}) 
     );

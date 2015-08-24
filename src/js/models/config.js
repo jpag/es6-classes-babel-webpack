@@ -16,6 +16,9 @@ if( browser()[0] == 'safari' &&
 
 
 module.exports = {
+
+	appNameSpace : 'app',
+
 	// breakpoints :
 	bkptMax   	: 1600, //980,
 	bkptMed   	: 992 + scrollBarWidth,  //767,
@@ -26,5 +29,6 @@ module.exports = {
 
 	minWidth 	: 300,
 	maxWidth 	: 1200,
+
 
 };

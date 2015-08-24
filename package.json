@@ -29,6 +29,8 @@
 		"connect"		: "latest",
 		"serve-static"	: "latest",
 		"nodemon"		: "latest"
+
+		
 	},
 
 	"devDependencies": {
@@ -42,6 +44,8 @@
     	"lodash"				: "*",
     	"node-libs-browser" 	: "*",
     	
+    	"director"				: "1.2.8",
+
     	"autoprefixer-stylus"	: "latest",
     	"stylus"				: "latest",
 
