@@ -68,9 +68,6 @@ npm run deploy
 
 All package management and tasks are run through NPM. 
 - [Stylus](learnboost.github.com/stylus/) with autoprefixer
-- [router.js](https://github.com/tildeio/router.js/) for managing all routing. It is also the routing microlib used by ember.js
-
-
 
 ### notes on using webpack babel
 
