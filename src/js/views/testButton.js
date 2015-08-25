@@ -38,14 +38,12 @@ class testButton extends BaseView {
 
 	mouseClick(e) {
 		trace(' mouse click');
-		trace( this._data );
-
+		// trace( this._data );
 		this.doFurtherAction();
 	}
 
 	overOutNobs(e) {
 		var el = e.currentTarget;
-		
 		if( e.type == 'mouseover' ){
 			e.currentTarget.classList.add(Classes.a);	
 		}else{

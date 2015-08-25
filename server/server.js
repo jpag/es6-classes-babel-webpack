@@ -27,10 +27,28 @@ trace( ' ' + config.app.name );
 // --------
 var port = config.port || 3000;
 var express = require('express')
-var serveStatic = require('serve-static') 
+
+//TODO: maybe we should move this into the server folder?
+var routes = require('../src/js/models/routes');
+
 var app = express()
 
-	app.use(serveStatic(config.staticPath))
+	// app.use(serveStatic(config.staticPath))
+
+	app.use(express.static(config.staticPath));
+	
+	// TODO make this more practical. And less sloppy.
+	// This is a hot fix to get routing working with one index.html page.
+	// loop through routes:
+	for( var r = 0; r < routes.length; r++){
+		var path = routes[r].path;
+
+		trace(' r ' + path );
+		if( path != '/' ){
+			app.use(path, express.static(config.staticPath));
+		}
+	}
+
 	app.listen(port)
 
 trace(' static server path : ' + config.staticPath );

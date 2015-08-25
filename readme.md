@@ -88,7 +88,7 @@ Highlight places polyfills and shims will be needed:
 ### not supported by IE8 and below
     removeEventListener() 
     bind() 
-
+    dispatchEvent
 
 
 ### Rules to follow

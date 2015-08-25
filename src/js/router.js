@@ -1,5 +1,5 @@
 import {Routes} from './models';
-
+import {dispatchEvent} from './helpers';
 
 // https://www.npmjs.com/package/history
 // http://rackt.github.io/history/stable/GettingStarted.html
@@ -7,9 +7,9 @@ import {Routes} from './models';
 
 
 // Browser history
-import createHistory from 'history/lib/createBrowserHistory';
+// import createHistory from 'history/lib/createBrowserHistory';
 // Hash history
-import createHashHistory from 'history/lib/createHashHistory';
+// import createHashHistory from 'history/lib/createHashHistory';
  
 
 
@@ -24,14 +24,16 @@ class Router {
 
 		trace( Routes );
 
-		if( this.browser_history_support ){
-			this.history = createHistory();
+		if( !this.browser_history_support ){
+			// if you don't have push state support no routing.
+			// we could expand on this however later.
+			return;
 		}else{
-			this.history = createHashHistory();
+			
 		}
 
 
-		this.listener = this.history.listen(this.dispatchChange.bind(this));
+		// this.listener = this.history.listen(this.dispatchChange.bind(this));
 
 		// var a = document.querySelectorAll('a[href^="/"]');
 		// for( var _ = 0; _ < a.length; _++){
@@ -42,34 +44,58 @@ class Router {
 		// bind to the document click event that is propagated up. Check if it has a href.
 		this.preventDefaultOnHrefsBind = this.preventDefaultOnHrefs.bind(this);
 		document.addEventListener('click', this.preventDefaultOnHrefsBind );
+		
+		this.dispatchChangeBind = this.dispatchChange.bind(this);
+		window.addEventListener('popstate', this.dispatchChangeBind );
+
+		// run on start:
+		this.dispatchChange({});
+
 	}
 
 	preventDefaultOnHrefs(e) {
-		trace(' click ');
-		e.preventDefault();
 		if( e.target.nodeName.toUpperCase() == 'A' ){
 			e.preventDefault();
 			trace(' clicked preventDefault doc.');
-			var url = e.target.getAttribute('href');
-			this.history.pushState({ some: 'state' }, url);
+			var url = e.target.getAttribute('href'),
+				state = {url:url};
+			history.pushState(state, null, url);
+
+			this.dispatchChange({});
 		}
 	}
 
-	dispatchChange(location){
-		trace(' dispatchChange - ');
-		trace( location );
+	dispatchChange(e){
+		// state was popped, back button or forward.
+		// e.state
+		trace('\n\n\n dispatchChange - ');
+		
+		// trace( e );
+		// trace( history.state );
+		trace( window.location.pathname );
+		
+		var path = window.location.pathname;
+		if(path.substr(path.length - 1) === '/') {
+			path = path.substr(0, path.length - 1 );
+		}
+
+		// loop through the event list and find the event to dispatch:
+		for( var r = 0; r < Routes.length; r++){
+			if( path == Routes[r].path ){
+				trace("match " + Routes[r].path );
+				// match
+				dispatchEvent(Routes[r].evt, {});
+				break;
+			}
+		}
 	}
 
 	unlisten() {
-		// When you're finished, stop the listener.
-		this.listener();
 		document.removeEventListener('click', this.preventDefaultOnHrefsBind );
-		window.removeEventListener('popstate', this.checkUrlBind, false);
+		window.removeEventListener('popstate', this.dispatchChangeBind);
 	}
 
 
-	
-	
 }
 
 

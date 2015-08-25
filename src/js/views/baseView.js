@@ -70,12 +70,12 @@ class BaseView {
 			
 			var obj = this.events[e];
 
-			trace( typeof obj.el );
+			// trace( typeof obj.el );
 
 			if( typeof obj.el === 'string' ){
 				var els = this.el.querySelectorAll(obj.el);
 				
-				trace( els );
+				// trace( els );
 
 				if( els.length == 0 ){
 					trace(' warning no elements found with querySelector: ' + obj.el );

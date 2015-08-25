@@ -7,7 +7,8 @@ module.exports = {
 	},
 
 	history : {
-		about : "history.change.about",
+		other : "history.change.other",
+		posts : "history.change.posts",
 		index : "history.change.index"
 	}
 };

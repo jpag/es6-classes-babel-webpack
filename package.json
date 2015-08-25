@@ -26,7 +26,6 @@
 
 	"dependencies": { 
 		"express"		: "latest",
-		"serve-static"	: "latest",
 		"nodemon"		: "latest"
 	},
 

@@ -11,12 +11,15 @@ var Events = require('../models/events');
 
 module.exports = [
 	{
-
-		path: "/about",
-		evt : Events.history.about
+		path: "/",
+		evt : Events.history.index
 
 	},{
-		path: "/index",
-		evt : Events.history.about		
+		path: "/posts",
+		evt : Events.history.posts
+
+	},{
+		path: "/other",
+		evt : Events.history.other		
 	}
 ];
