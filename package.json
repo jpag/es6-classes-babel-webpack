@@ -60,19 +60,18 @@
 
 		"livereload"		: "live-reload --port 9091 ./public/",
 		
-		"build:stylus"		: "stylus -u autoprefixer-stylus --sourcemap < ./src/css/global.styl | cssmin > ./public/css/global.css ",
+		"build:stylus"		: "stylus -u autoprefixer-stylus --sourcemap ./src/css/global.styl ./public/css/global.css ",
 		"dist:stylus"		: "stylus -u autoprefixer-stylus < ./src/css/global.styl | cssmin > ./dist/css/global.css ",
 		
 		"build:js"			: "ENV_DEV=1 webpack",
 		"dist:js"			: "ENV_DEV=0 webpack",
 
 		"watch:css"			: "watch 'npm run build:stylus' ./src/css/",
-		
 		"watch:js"			: "webpack --watch",
 
 		"dev"				: "nodemon ./server/server.js & parallelshell 'npm run watch:js' 'npm run watch:css' 'npm run livereload' 'npm run lint'",
 
-		"deploy"			: "npm run build:js"
+		"deploy"			: "bash ./scripts/deploy.sh"
 		
 	}
 }

@@ -1,11 +1,9 @@
-## Router
+## Event Dispatching
 
 ## verify import/require modules are not webpack duplicates
     some of the packages if imported differently become a different webpack require component = redundant code.
-    
-## Templating server/client
 
-### Event Dispatching
+## Templating server/client
 
 ### Main app / entry point
 
