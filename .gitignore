@@ -1,6 +1,7 @@
 *.sublime-workspace
 .DS_Store
 
+
 public/css/
 public/js/
 dist

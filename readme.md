@@ -1,7 +1,7 @@
-# ES6 Classes with Webpack + Babel
+# Vanilla JS, ES6 Classes, with Webpack loading + Babel transpiler
 
 ## Why
-I don't want to work in dependency hell. Right out of the gate this framework is very lean. And does not rely on specific frameworks or other libraries. 
+A lot of frameworks have massive APIs and dependency hell. Right out of the gate this framework is nothing but some basic JS class structures with empty functions and extends. It does not rely on specific frameworks or other libraries. It tries to be as vanilla JS as possible.
     
     -It is pure ES6, managed by webpack, and transpiled by Babel.
     -NPM is the package and script manager, all in the packages.json file.
@@ -13,14 +13,49 @@ A very incomplete framework.
 - Basics are working.
 - no shims or polyfill checks implemented yet (for legacy browsers).
 
-### TODO:
-    -Router
-    -Event Dispatching
-    -Main app / entry point
-    -Component test instance/example
-    -AMD style loading/ selective library loading of content.
-    -Unit testing (tape/tap)
-    -Hot loading (react hot loading is sweet?)
+
+## Running
+All scripts are run from NPM
+
+Basic setup.
+```
+
+npm install
+
+```
+
+Run dev to watch/compile files and run the local node server.
+```
+
+npm run dev
+
+```
+
+### Scripts that are WIP.
+```
+
+npm run lint
+
+npm run deploy
+
+```
+
+
+## Folder structure
+```
+| -- dist (git ignored - distrubtion folder for deployment)
+| -- public (files that are compiled are written here for development)
+* folder structure may change to work with version control of static assets.
+| ---- css
+| ---- js
+| -- src (all src files before compilation)
+| ---- css
+| ---- js
+| -- .eslintrc (define linting rules)
+| -- package.json (all dependencies and scripts)
+| -- webpage.config.js (config file for dev/deploy settings)
+```
+
 
 ## Development Stack
 

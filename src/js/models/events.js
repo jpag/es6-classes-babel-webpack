@@ -4,5 +4,10 @@ module.exports = {
 	},
 	app : {
 		stateChange : "ev.app.statechange"
+	},
+
+	history : {
+		about : "history.change.about",
+		index : "history.change.index"
 	}
 };

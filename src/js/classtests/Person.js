@@ -1,4 +1,6 @@
-import Events from '../models/events';
+// import {Events} from '../models';
+
+var Events = require('../models/events');
 
 class Person {
 

@@ -4,12 +4,12 @@ function trace(str) {
 
 trace(' - booting up node server - ');
 
-var serveStatic = require('serve-static'),
-	connect = require('connect'),
-	localconfig = require('./server.localconfig'),
-	env = localconfig.env;
-	
-trace(" loop to find argument for env.");
+var localconfig = require('./server.localconfig'),
+	env = localconfig.env,
+	config = {};
+
+
+trace(" - loop to find argument for env. -");
 // Loop through arguments and see if environment is declared if so assign it.
 process.argv.forEach(function (val, index, array) {
 	var split = val.split('=');
@@ -17,33 +17,24 @@ process.argv.forEach(function (val, index, array) {
  		env = split[1];
  	}
 });
-
-var config = require('./server.config')[env];
-
+// we have an environment so define the config object accordingly.
+config = require('./server.config')[env];
 trace( ' ' + config.app.name );
 
 
+// --------
 // Instantiate the server
-var app = connect(),
-	staticApp = connect(),
-	// Start the server by listening on <port>
-	port = config.port || 3000;
+// --------
+var port = config.port || 3000;
+var express = require('express')
+var serveStatic = require('serve-static') 
+var app = express()
 
-
-staticApp.use(serveStatic(config.staticPath));
-
-app.use(staticApp);
-app.listen(port);
+	app.use(serveStatic(config.staticPath))
+	app.listen(port)
 
 trace(' static server path : ' + config.staticPath );
 trace(' started on port: ' + port);
 trace(' environment: ' + env);
-
 trace('\n\n-------\n-------\n'+ 'localhost:' + port+'\n-------\n-------\n\n');
 
-
-/*
-	you can now set up a proxy with apache / nginx 
-	to display during development a url sans port number
-	http://thatextramile.be/blog/2012/01/hosting-a-node-js-site-through-apache
-*/

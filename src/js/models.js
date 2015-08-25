@@ -2,5 +2,6 @@
 module.exports = {
 	"Events" 		: require("./models/events"),
 	"Classes" 		: require("./models/classes"),
-	"Config"		: require("./models/config")
+	"Config"		: require("./models/config"),
+	"Routes"		: require("./models/routes")
 };

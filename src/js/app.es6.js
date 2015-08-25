@@ -1,18 +1,20 @@
+/* 
+ *
+ * ES6 ----------
+ *
+ */
+
 import Person from './classtests/Person';
 import Punk from './classtests/Punk';
 
 import {isIE, browser} from './helpers';
 import {Config, Events} from './models';
 
-
 import testButton from './views/testButton';
-
+import Router from './router';
 
 // import {director} from './director/lib/director';
-// var director = require('director/lib/director');
-var director = require('director/build/director');
-
-
+// var director = require('director/build/director');
 
 // You can import portions from react using syntax import React, { Component } from 'react';.
 // import {zip} from 'lodash';
@@ -54,16 +56,16 @@ var btn = new testButton({
 
 
 
-trace( director );
-
-
-
-
 class App {
 	constructor() {
 		trace(' APP is inited');
 		// get this going.
+		
+		this.router = new Router();
+		
+	}
 
+	/*buildRouterWithDirector() {
 		// var router = new Router();
 		var routes = {
 			'/posts': this.switchPage.bind(this),
@@ -73,11 +75,7 @@ class App {
 			'/books/view/:bookId': this.switchPage.bind(this)
 		};
 
-		// determine how we do the routing
-		var browser_history_support = (window.history != null ? window.history.pushState : null) != null;
-
 		var router = new director.Router(routes);
-
 		router.configure({
 			html5history: true
 		});
@@ -85,8 +83,7 @@ class App {
 		// 
 		// window.
 		router.init();
-	}
-
+	}*/
 
 	switchPage(e) {
 		trace(' ---- App switch page ');

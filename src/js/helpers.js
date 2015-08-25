@@ -1,4 +1,5 @@
-// custom helpers made for your project:
+// custom helpers made for the project:
+// add / remove accordingly
 module.exports = {
 	"iseven" 		: require("./helpers/iseven"),
 	"browser" 		: require("./helpers/browser"),
