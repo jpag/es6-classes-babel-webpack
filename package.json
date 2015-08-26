@@ -56,7 +56,7 @@
 
 	"scripts": {
 
-		"lint"				: "eslint ./src/js/**/*.js",
+		"lint"				: "eslint ./src/js/**/*.js; exit 0",
 
 		"livereload"		: "live-reload --port 9091 ./public/",
 		
