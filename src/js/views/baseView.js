@@ -20,7 +20,7 @@ class BaseView {
 		
 		this._data = obj;
 		
-		if( typeof obj.el !== undefined ){
+		if( obj.el ){
 			// if the view is already rendered just assign the element:
 			this.el = obj.el;
 		}else{
