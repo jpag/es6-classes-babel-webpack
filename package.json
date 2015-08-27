@@ -58,18 +58,18 @@
 
 		"lint"				: "eslint ./src/js/**/*.js; exit 0",
 
-		"livereload"		: "live-reload --port 9091 ./public/",
+		"livereload"		: "$(npm bin)/live-reload --port 9091 ./public/",
 		
 		"build:stylus"		: "$(npm bin)/stylus -u autoprefixer-stylus --sourcemap ./src/css/global.styl -o ./public/css/global.css",
 		"dist:stylus"		: "$(npm bin)/stylus -u autoprefixer-stylus < ./src/css/global.styl | cssmin > ./dist/css/global.css ",
 		
-		"build:js"			: "ENV_DEV=1 webpack",
-		"dist:js"			: "ENV_DEV=0 webpack",
+		"build:js"			: "ENV_PROD=0 webpack",
+		"dist:js"			: "ENV_PROD=1 webpack",
 
 		"watch:css"			: "watch 'npm run build:stylus' ./src/css/",
-		"watch:js"			: "webpack --watch",
+		"watch:js"			: "ENV_PROD=0 webpack --progress --colors --watch --cache",
 
-		"dev"				: "nodemon ./server/server.js & parallelshell 'npm run watch:js' 'npm run watch:css' 'npm run livereload' 'npm run lint'",
+		"dev"				: "node ./server/server.js & parallelshell 'npm run watch:js' 'npm run watch:css' 'npm run livereload' 'npm run lint'",
 
 		"deploy"			: "bash ./scripts/deploy.sh"
 		

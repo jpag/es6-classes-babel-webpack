@@ -11,7 +11,7 @@ var devTool = 'source-map';
 
 
 
-var PROD = JSON.parse(process.env.ENV_DEV || 0);
+var PROD = JSON.parse(process.env.ENV_PROD || 0);
 
 var plugins = [
     // Avoid publishing files when compilation failed

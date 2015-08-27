@@ -40,6 +40,15 @@ npm run deploy
 
 ```
 
+## Live Reload
+make sure to kill whatever is running on port 9091 (or change the port number)
+view what is running
+
+```
+sudo lsof -i :9091
+
+kill [PID]
+```
 
 ## Folder structure
 ```
