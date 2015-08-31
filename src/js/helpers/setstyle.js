@@ -2,7 +2,7 @@
  * Shortcut for css styling at the element level / inline styles.
  *
 */
-function setStyle(el, obj) {
+function setStyle(el, cssObj) {
 	// is el a list of elements?
 	var elIsList = el instanceof Array;
 
