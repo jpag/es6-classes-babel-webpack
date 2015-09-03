@@ -87,9 +87,13 @@ class BaseView {
 					els[el].addEventListener( obj.ev, obj.fn );
 				}
 
-			}else if( obj.el instanceof HTMLElement ){
+
+			// this else if HTMLElement will not bind document.add.. document is an object.
+			}else if( obj.el instanceof HTMLElement || obj.el == document ){
 				// assume it is a reference to an instance.
 				obj.el.addEventListener( obj.ev, obj.fn );
+			}else{
+				trace(' warning unable to bind : ' + obj.ev + ' to ' + obj.el );
 			}
 		}
 	}

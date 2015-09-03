@@ -6,13 +6,25 @@
  */
 
 import BaseView from './baseView';
-import {Classes} from '../models';
+import {Classes, Events} from '../models';
+import {dispatchEvent} from '../helpers';
+
+
+// could use let : local
+let letForTestButton = "this variable is accessible";
+const constTestButton = "this value is a const";
+var variableForTestButton = 0.1;
 
 
 class testButton extends BaseView {
 
 	constructor(obj) {
 		super(obj);
+
+		trace( variableForTestButton );
+		trace( letForTestButton );
+		variableForTestButton++;
+
 	}
 
 	defineEvents() {
@@ -39,7 +51,12 @@ class testButton extends BaseView {
 	mouseClick(e) {
 		trace(' mouse click');
 		// trace( this._data );
+
+		trace( variableForTestButton );
+		trace( letForTestButton );
 		this.doFurtherAction();
+
+
 	}
 
 	overOutNobs(e) {
@@ -54,7 +71,22 @@ class testButton extends BaseView {
 	// test binding of this.doFurther from click.
 	doFurtherAction() {
 		trace(' do further action');
+
+		// pulls an error on compile.
+		/*
+		try {
+			constTestButton = "try to change the let variable";
+		}finally{
+			trace(' error, we cantchange a LET');
+		}
+		*/
+
+		trace( constTestButton );
+
 		this.destroy();
+
+		dispatchEvent(Events.app.stateChange, {somevar:"pass some datas"});
+
 	}
 
 }

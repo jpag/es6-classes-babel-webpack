@@ -59,7 +59,13 @@ class App {
 		// get this going.
 		
 		this.router = new Router();
-		
+			
+		document.addEventListener(Events.app.stateChange, this.stateChange.bind(this));
+	}
+
+	stateChange(e) {
+		trace(' state change dispatched from test button.');
+		trace(e.detail);
 	}
 
 	switchPage(e) {
